@@ -1,10 +1,17 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import API from '../config/Api';
+
+interface User {
+  id: string,
+  nome: string;
+  email: string;
+  token: string;
+}
 
 //interface com todos os dados necessarios
 interface AuthContextData {
   signed: boolean;
-  user: object | null;
+  user: User | null;
   signUp(user: object): Promise<object>;
   signIn(user: object): Promise<object>;
   forgot(user: object): Promise<object>;
@@ -15,7 +22,19 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 //criando provedor que servirá a aplicação
 export const AuthProvider: React.FC = ({ children }) => {
-  const [user, setUser] = useState<object | null>(null);
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    async function loadStorageData() {
+      const storagedUser = localStorage.getItem('user');
+
+      if (storagedUser) {
+        setUser(JSON.parse(storagedUser));
+      }
+    }
+
+    loadStorageData();
+  }, []);
 
   //função que realiza o cadastro
   async function signUp(usuario: object){
