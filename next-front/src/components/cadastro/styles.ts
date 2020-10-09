@@ -3,20 +3,27 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  align-items: center;
 
-  >h3 {
-    margin-top: 30px;
-    text-align: center;
-    color: ${props => props.theme.colors.primary};
+  h1 {
+    color: ${props => props.theme.colors.primary}
+  }
+
+  @media(max-width: 600px){
+    margin: 0 10px;
   }
 `;
 
 export const MenuForm = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 30px 45px 20px 45px;
+  background-color: #fff;
+  border-radius: 10px;
+
+  max-width: 500px;
+  width: 100%;
+
+  padding: 20px 20px 0px;
 
   >input {
     outline: none;
@@ -55,8 +62,9 @@ export const MenuForm = styled.div`
 
 export const Options = styled.div`
   display: flex;
-  width: 464px;
   justify-content: space-between;
+
+  width: 100%;
 
   > a {
     color: ${props => props.theme.colors.primary};

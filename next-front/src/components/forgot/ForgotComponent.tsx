@@ -39,17 +39,19 @@ const ForgotComponent: React.FC = () => {
   return (
     <>
       <Container>
+        <h1>Forgot</h1>
+
         <MenuForm>
           <input type="email" placeholder="email pessoal" name="email" onChange={handleChange} />
 
           <button onClick={SubmitForm} type="submit">Forgot</button>
         </MenuForm>
-      </Container>
 
-      <Options>
-        <a href="#">cadastrar</a>
-        <a href="#">login</a>
-      </Options>
+        <Options>
+          <a href="#">cadastrar</a>
+          <a href="#">login</a>
+        </Options>
+      </Container>
     </>
   );
 }

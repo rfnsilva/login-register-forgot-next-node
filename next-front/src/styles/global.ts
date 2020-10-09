@@ -7,6 +7,19 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html, body, #root {
+    max-width: 100vw;
+    max-height: 100vh;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  p, input, button {
+    margin: 0;
+    padding: 0;
+  }
+
   body {
     background: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text};

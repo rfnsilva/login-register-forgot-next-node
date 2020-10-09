@@ -12,8 +12,6 @@ const Dashboard: React.FC = () => {
         <title>Dashboard</title>
       </Head>
 
-      <h1>Dados</h1>
-
       <Card />
     </Container>
   )

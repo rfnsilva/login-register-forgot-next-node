@@ -47,6 +47,8 @@ const Cadastro: React.FC = () => {
   return (
     <>
       <Container>
+        <h1>Cadastrar</h1>
+
         <MenuForm>
           <input type="text" placeholder="nome" name="nome" onChange={handleChange} />
           <input type="email" placeholder="email pessoal" name="email" onChange={handleChange} />
@@ -57,12 +59,12 @@ const Cadastro: React.FC = () => {
           </p>
           <button onClick={SubmitForm} type="submit">Cadastrar</button>
         </MenuForm>
-      </Container>
 
-      <Options>
-        <a href="#">login</a>
-        <a href="#">forgot</a>
-      </Options>
+        <Options>
+          <a href="#">login</a>
+          <a href="#">forgot</a>
+        </Options>
+      </Container>
     </>
   );
 }

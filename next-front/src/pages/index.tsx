@@ -12,8 +12,6 @@ const Home: React.FC = () => {
         <title>Cadastrar</title>
       </Head>
 
-      <h1>Cadastro</h1>
-
       <Cadastro />
     </Container>
   )

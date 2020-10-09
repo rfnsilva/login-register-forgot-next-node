@@ -12,8 +12,6 @@ const Login: React.FC = () => {
         <title>Login</title>
       </Head>
 
-      <h1>Login</h1>
-
       <LoginComponent />
     </Container>
   )

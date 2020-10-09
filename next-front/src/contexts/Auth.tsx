@@ -15,6 +15,7 @@ interface AuthContextData {
   signUp(user: object): Promise<object>;
   signIn(user: object): Promise<object>;
   forgot(user: object): Promise<object>;
+  signOut(): void;
 }
 
 //criando context com tipo da interface acima
@@ -68,6 +69,12 @@ export const AuthProvider: React.FC = ({ children }) => {
     return data;
   }
 
+  //função que realiza o login
+  function signOut(){
+    localStorage.clear();
+    setUser(null);
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -75,7 +82,8 @@ export const AuthProvider: React.FC = ({ children }) => {
         signed: !!user,
         signUp,
         signIn,
-        forgot
+        forgot,
+        signOut
       }}
     >
       {children}

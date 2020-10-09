@@ -3,20 +3,31 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  align-items: center;
 
-  >h3 {
-    margin-top: 30px;
-    text-align: center;
-    color: ${props => props.theme.colors.primary};
+  h1 {
+    color: ${props => props.theme.colors.primary}
+  }
+
+  @media(max-width: 600px){
+    margin: 0 10px;
   }
 `;
 
 export const MenuForm = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 30px 45px 20px 45px;
+  background-color: #fff;
+  border-radius: 10px;
+
+  max-width: 500px;
+  width: 419px;
+
+  @media(max-width: 500px){
+    width: 337px;
+  }
+
+  padding: 20px 20px 0px;
 
   >input {
     outline: none;
@@ -25,20 +36,6 @@ export const MenuForm = styled.div`
     padding: 18px 13px;
     border: none;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25), 0px 1px 3px rgba(0, 0, 0, 0.02);
-  }
-
-  >p {
-    font-family: Open Sans;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 150%;
-    letter-spacing: 0.01em;
-    color: #94A3B3;
-
-    >a {
-      color: blue;
-    }
   }
 
   >button {
@@ -55,8 +52,9 @@ export const MenuForm = styled.div`
 
 export const Options = styled.div`
   display: flex;
-  width: 295px;
   justify-content: space-between;
+
+  width: 100%;
 
   > a {
     color: ${props => props.theme.colors.primary};

@@ -12,8 +12,6 @@ const Login: React.FC = () => {
         <title>Forgot</title>
       </Head>
 
-      <h1>Forgot</h1>
-
       <ForgotComponent />
     </Container>
   )

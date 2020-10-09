@@ -45,18 +45,20 @@ const LoginComponent: React.FC = () => {
   return (
     <>
       <Container>
+        <h1>Login</h1>
+
         <MenuForm>
           <input type="email" placeholder="email pessoal" name="email" onChange={handleChange} />
           <input type="password" placeholder="senha" name="senha" onChange={handleChange} />
 
           <button onClick={SubmitForm} type="submit">Login</button>
         </MenuForm>
-      </Container>
 
-      <Options>
-        <a href="#">cadastrar</a>
-        <a href="#">forgot</a>
-      </Options>
+        <Options>
+          <a href="#">cadastrar</a>
+          <a href="#">forgot</a>
+        </Options>
+      </Container>
     </>
   );
 }
