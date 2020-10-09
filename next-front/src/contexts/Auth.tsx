@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import API from '../config/Api';
+import { Cookie } from 'next-cookie';
 
 interface User {
   id: string,
@@ -27,10 +28,11 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     async function loadStorageData() {
-      const storagedUser = localStorage.getItem('user');
+      const cookie = new Cookie();
+      const userCookie: User = cookie.get('user');
 
-      if (storagedUser) {
-        setUser(JSON.parse(storagedUser));
+      if (userCookie) {
+        setUser(userCookie);
       }
     }
 
@@ -54,9 +56,10 @@ export const AuthProvider: React.FC = ({ children }) => {
     const response = await API.post('/login', usuario);
     const data = await response.data;
 
-    setUser(data);
+    const cookie = new Cookie();
+    cookie.set('user', data);
 
-    localStorage.setItem('user', JSON.stringify(data));
+    setUser(data);
 
     return data;
   }
@@ -83,7 +86,7 @@ export const AuthProvider: React.FC = ({ children }) => {
         signUp,
         signIn,
         forgot,
-        signOut
+        signOut,
       }}
     >
       {children}

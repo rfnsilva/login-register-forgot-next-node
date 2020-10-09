@@ -1,20 +1,34 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Head from 'next/head';
 
-import Card from '../../components/card/Card';
+import { Cookie } from 'next-cookie';
 
+import Card from '../../components/card/Card';
 import { Container } from '../../styles/pages/Home';
 
-const Dashboard: React.FC = () => {
+export async function getServerSideProps(ctx) {
+  const { cookie } = new Cookie(ctx);
+
+  const userCookie = cookie.get('user') ? cookie.get('user') : '';
+
+  if(!userCookie){
+    ctx.res.setHeader("location", "/");
+    ctx.res.statusCode = 302;
+    ctx.res.end();
+  }
+
+  return {props: { userCookie }};
+}
+
+
+export default function Dashboard({ userCookie }){
   return (
     <Container>
       <Head>
         <title>Dashboard</title>
       </Head>
 
-      <Card />
+      <Card user={userCookie} />
     </Container>
   )
 }
-
-export default Dashboard;

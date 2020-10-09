@@ -1,16 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 
-import AuthContext from '../../contexts/Auth';
+import { Container, CardUser } from './styles';
 
-import { Container, CardUser, Options } from './styles';
-
-const Card: React.FC = () => {
-  const { user, signOut } = useContext(AuthContext);
-
-  const logout = () => {
-    signOut();
-  }
-
+export default function Card({ user }){
   return (
     <Container>
       <h1>Dados</h1>
@@ -22,11 +14,10 @@ const Card: React.FC = () => {
         <input disabled type="text" name="token" value={user?.token || ''} />
       </CardUser>
 
+      { /*
       <Options>
         <button onClick={logout} type="button">Logout</button>
-      </Options>
+      </Options> */ }
     </Container>
   );
 }
-
-export default Card;

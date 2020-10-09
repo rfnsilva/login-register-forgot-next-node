@@ -5,7 +5,7 @@ import ForgotComponent from '../components/forgot/ForgotComponent'
 
 import { Container } from '../styles/pages/Home';
 
-const Login: React.FC = () => {
+const Forgot: React.FC = () => {
   return (
     <Container>
       <Head>
@@ -17,4 +17,4 @@ const Login: React.FC = () => {
   )
 }
 
-export default Login
+export default Forgot

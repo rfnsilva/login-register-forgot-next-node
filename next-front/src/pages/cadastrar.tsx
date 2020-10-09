@@ -1,20 +1,20 @@
 import React from 'react'
 import Head from 'next/head'
 
-import LoginComponent from '../components/login/LoginComponent'
+import Cadastro from '../components/cadastro/Cadastro'
 
 import { Container } from '../styles/pages/Home';
 
-const Login: React.FC = () => {
+const Cadastrar: React.FC = () => {
   return (
     <Container>
       <Head>
-        <title>Login</title>
+        <title>Cadastrar</title>
       </Head>
 
-      <LoginComponent />
+      <Cadastro />
     </Container>
   )
 }
 
-export default Login
+export default Cadastrar
