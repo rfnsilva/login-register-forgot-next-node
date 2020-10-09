@@ -44,9 +44,10 @@ export const AuthProvider: React.FC = ({ children }) => {
     const response = await API.post('/register', usuario);
     const data = await response.data;
 
-    setUser(data);
+    const cookie = new Cookie();
+    cookie.set('user', data);
 
-    localStorage.setItem('user', JSON.stringify(data));
+    setUser(data);
 
     return data;
   }
