@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 import Cadastro from '../components/cadastro/Cadastro'
 
-import { Container } from '../styles/pages/Home';
+import { Container } from '../styles/pages/Principal';
 
 const Cadastrar: React.FC = () => {
   return (

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link'
 
 import AuthContext from '../../contexts/Auth';
 
@@ -48,8 +49,12 @@ const ForgotComponent: React.FC = () => {
         </MenuForm>
 
         <Options>
-          <a href="#">cadastrar</a>
-          <a href="#">login</a>
+          <Link href='/cadastrar'>
+            <a>cadastrar</a>
+          </Link>
+          <Link href='/'>
+            <a>login</a>
+          </Link>
         </Options>
       </Container>
     </>

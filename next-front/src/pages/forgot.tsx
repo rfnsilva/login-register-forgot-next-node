@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 import ForgotComponent from '../components/forgot/ForgotComponent'
 
-import { Container } from '../styles/pages/Home';
+import { Container } from '../styles/pages/Principal';
 
 const Forgot: React.FC = () => {
   return (

@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { Cookie } from 'next-cookie';
 
 import Card from '../../components/card/Card';
-import { Container } from '../../styles/pages/Home';
+import { Container } from '../../styles/pages/Principal';
 
 export async function getServerSideProps(ctx) {
   const { cookie } = new Cookie(ctx);
@@ -28,7 +28,7 @@ export default function Dashboard({ userCookie }){
         <title>Dashboard</title>
       </Head>
 
-      <Card user={userCookie} />
+      <Card usuario={userCookie} />
     </Container>
   )
 }

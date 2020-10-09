@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link'
 
 import AuthContext from '../../contexts/Auth';
 
@@ -61,8 +62,12 @@ const Cadastro: React.FC = () => {
         </MenuForm>
 
         <Options>
-          <a href="#">login</a>
-          <a href="#">forgot</a>
+          <Link href='/'>
+            <a>login</a>
+          </Link>
+          <Link href='/forgot'>
+            <a>forgot</a>
+          </Link>
         </Options>
       </Container>
     </>

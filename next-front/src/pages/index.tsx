@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { Cookie } from 'next-cookie';
 
 import LoginComponent from '../components/login/LoginComponent'
-import { Container } from '../styles/pages/Home';
+import { Container } from '../styles/pages/Principal';
 
 export async function getServerSideProps(ctx) {
   const { cookie } = new Cookie(ctx);

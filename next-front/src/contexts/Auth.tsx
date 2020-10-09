@@ -16,7 +16,7 @@ interface AuthContextData {
   signUp(user: object): Promise<object>;
   signIn(user: object): Promise<object>;
   forgot(user: object): Promise<object>;
-  signOut(): void;
+  signOut(): boolean;
 }
 
 //criando context com tipo da interface acima
@@ -74,9 +74,16 @@ export const AuthProvider: React.FC = ({ children }) => {
   }
 
   //função que realiza o login
-  function signOut(){
-    localStorage.clear();
-    setUser(null);
+  function signOut(): boolean{
+    try{
+      const cookie = new Cookie();
+      cookie.remove('user')
+      setUser(null);
+
+      return true;
+    } catch(error){
+      console.log('erro ao fazer logout')
+    }
   }
 
   return (

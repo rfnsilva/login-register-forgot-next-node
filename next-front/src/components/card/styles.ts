@@ -9,6 +9,17 @@ export const Container = styled.div`
     color: ${props => props.theme.colors.primary}
   }
 
+  > button {
+    color: ${props => props.theme.colors.primary};
+    border: none;
+    background-color: #fff;
+    width: 100px;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+  }
+
   @media(max-width: 600px){
     margin: 0 10px;
   }
@@ -37,21 +48,6 @@ export const CardUser = styled.div`
     padding: 18px 13px;
     border: none;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25), 0px 1px 3px rgba(0, 0, 0, 0.02);
-  }
-`;
-
-export const Options = styled.button`
-  justify-content: center;
-  margin-top: 10px;border-radius: 5px;
-  width: 100px;
-  height: 40px;
-  background-color: #fff;
-  border: none;
-
-  > button {
-    color: ${props => props.theme.colors.primary};
-    border: none;
-    background-color: #fff;
   }
 `;
 
