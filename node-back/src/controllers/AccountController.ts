@@ -9,17 +9,18 @@ import * as bcrypt from 'bcrypt';
 
 export const register = async (req: Request, res: Response) => {
   const { nome, email, senha, csenha } = req.body;
+  console.log('aqui 1')
   
   if(senha !== csenha)
     return res.status(404).json({message: "erro senhas diferentes"})
   
   try {
-    const senhaHash = await bcrypt.hash(senha, 8);
+    //const senhaHash = await bcrypt.hash(senha, 8);
     
     const user = await getRepository(User).save({
       nome,
       email,
-      senha: senhaHash
+      senha
     });
     
     const token_register = jwt.sign({ nome }, process.env.SECRET, {
@@ -50,7 +51,8 @@ export const login = async (req: Request, res: Response) => {
       }
     });
     
-    if (await bcrypt.compare(senha, user[0].senha)) {
+    //if (await bcrypt.compare(senha, user[0].senha)) {
+    if (senha == user[0].senha) {  
       
       const token_login = jwt.sign({ email }, process.env.SECRET, {
         expiresIn: '1d'
@@ -112,4 +114,15 @@ export const forgot = async (req: Request, res: Response) => {
   .execute();
   
   return res.status(200).json({message: 'senha criada e enviado para o mailtrap'})
+}
+
+export const users = async (req: Request, res: Response) => {
+  try {
+    const users = await getRepository(User).find();   
+    
+    return res.json(users);
+  
+  } catch (err) {
+    return res.status(402).json({message: "erro ao pegar usuarios"})
+  }
 }
